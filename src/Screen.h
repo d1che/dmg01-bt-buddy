@@ -2,6 +2,7 @@
 #define __SCREEN__
 
 #include "SSD1306Wire.h"
+#include "images.h"
 
 class Screen {
   private:

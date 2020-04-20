@@ -27,7 +27,5 @@ void Screen::printBuffer() {
 }
 
 void Screen::drawFigure() {
-  m_screen.clear();
-  m_screen.drawRect(0, 0, 32, 32);
-  m_screen.display();
+  m_screen.drawXbm(0, 0, icon_wifi_width, icon_wifi_height, icon_wifi_bits);
 }
