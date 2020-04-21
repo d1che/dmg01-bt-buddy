@@ -1,11 +1,18 @@
 #include <Arduino.h>
 #include "Screen.h"
+#include "ConnectionManager.h"
+//#include "OTA.h"
 
 Screen screen;
+ConnectionManager connection;
 
 void setup() {
-  delay(500);
+  Serial.begin(9600);
   screen.init();
+
+  connection.connect("--------------------W---","diezalikjezometeengeven");
+  connection.setHostname("dmg01");
+  screen.print(0, 0, connection.getIP());
 }
 
 void loop() {

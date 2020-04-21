@@ -1,5 +1,5 @@
-#ifndef __SCREEN__
-#define __SCREEN__
+#ifndef __SCREEN_H__
+#define __SCREEN_H__
 
 #include "SSD1306Wire.h"
 #include "images.h"
@@ -8,12 +8,11 @@ class Screen {
   private:
     SSD1306Wire m_screen;
   public:
-    Screen()
-      : m_screen(0x3c, 0, 2) {}
+    Screen();
 
-    void init(void);
-    void printBuffer(void);
-    void drawFigure(void);
+    void init();
+    void print(uint8_t x, uint8_t y, String text);
+    void drawFigure();
 };
 
 #endif
