@@ -13,6 +13,7 @@ class Screen {
     void init();
     void print(uint8_t x, uint8_t y, String text);
     void drawFigure();
+    void drawPixel(uint8_t x, uint8_t y);
 };
 
 #endif
