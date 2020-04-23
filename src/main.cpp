@@ -5,6 +5,10 @@
 #include "Button2.h"
 #include "ESPRotary.h"
 
+// Please create this file in which you define
+// your WiFi credentials (see below)
+#include "credentials.h" 
+
 #define ROTARY_PIN1 1
 #define ROTARY_PIN2 3
 #define BUTTON_PIN 13
@@ -51,7 +55,7 @@ void setup() {
 
   screen.print(0, 0, connection.getIP());
   screen.drawFigure();
-  connection.connect("--------------------W---","diezalikjezometeengeven");
+  connection.connect(SSID, PASS); // Defined in "credentials.h"
   connection.setHostname("dmg01");
 }
 
