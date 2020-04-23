@@ -3,12 +3,16 @@
 Button::Button() { }
 
 void Button::init() {  
-  m_r.setChangedHandler(this->rotate);
-  m_r.setLeftRotationHandler(this->showDirection);
-  m_r.setRightRotationHandler(this->showDirection);
+  m_r.setChangedHandler(changed);
+  m_r.setLeftRotationHandler(rotLeft);
+  m_r.setRightRotationHandler(rotRight);
 
-  m_b.setTapHandler(this->click);
-  m_b.setLongClickHandler(this->resetPosition);
+  m_b.setTapHandler(click);
+  m_b.setLongClickHandler(clickLong);
+}
+
+void setCallbacks(void (*changed), void (*rotLeft), void (*rotRight), void (*click), void (*clickLong)) {
+  
 }
 
 void Button::update() {
@@ -32,6 +36,6 @@ void Button::click(Button2& btn) {
 }
 
 // long click
-void Button::resetPosition(Button2& btn) {
-  m_r.resetPosition();
+void Button::longClick(Button2& btn) {
+  
 }
