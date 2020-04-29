@@ -3,16 +3,11 @@
 Button::Button() { }
 
 void Button::init() {  
-  m_r.setChangedHandler(changed);
-  m_r.setLeftRotationHandler(rotLeft);
-  m_r.setRightRotationHandler(rotRight);
-
+  m_r.setChangedHandler(rotate);
+  m_r.setLeftRotationHandler(showDirection);
+  m_r.setRightRotationHandler(showDirection);
   m_b.setTapHandler(click);
-  m_b.setLongClickHandler(clickLong);
-}
-
-void setCallbacks(void (*changed), void (*rotLeft), void (*rotRight), void (*click), void (*clickLong)) {
-  
+  m_b.setLongClickHandler(longClick);
 }
 
 void Button::update() {
@@ -21,21 +16,21 @@ void Button::update() {
 }
 
 // on change
-void Button::rotate(ESPRotary& r) {
-  r.getPosition();
+void rotate(ESPRotary& r) {
+  Serial.println(r.getPosition());
 }
 
 // on left or right rotation
 void Button::showDirection(ESPRotary& r) {
-  r.directionToString(r.getDirection());
+  Serial.println(r.directionToString(r.getDirection()));
 }
 
 // single click
 void Button::click(Button2& btn) {
-  
+  Serial.println("click!");
 }
 
 // long click
 void Button::longClick(Button2& btn) {
-  
+  Serial.println("Long click!");
 }

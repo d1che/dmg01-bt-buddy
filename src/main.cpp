@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Screen.h"
 #include "Button.h"
-#include "Menu.h"
+//#include "Menu.h"
 #include "ConnectionManager.h"
 
 // Please create this file in which you define
@@ -10,16 +10,16 @@
 
 Screen screen;
 Button button;
-Menu menu;
+//Menu menu;
 ConnectionManager connection;
 
 void setup() {
+  Serial.begin(9600);
   screen.init();
   screen.print(0, 0, connection.getIP());
   screen.drawFigure();
   
   button.init();
-  button.setCallbacks(menu.getValue, menu.prevItem, menu.nextItem, menu.select, menu.longSelect);
 
   connection.connect(SSID, PASS); // Defined in "credentials.h"
   connection.setHostname("dmg01");

@@ -15,13 +15,13 @@ class Button {
     ESPRotary m_r = ESPRotary(ROTARY_PIN1, ROTARY_PIN2, CLICKS_PER_STEP);
     Button2 m_b = Button2(BUTTON_PIN);
   public:
+    Button();
     void init();
-    void setCallbacks(void (*changed), void (*rotLeft), void (*rotRight), void (*click), void (*clickLong));
     void update();
     void rotate(ESPRotary& r);
     void showDirection(ESPRotary& r);
     void click(Button2& btn);
-    void resetPosition(Button2& btn);
+    void longClick(Button2& btn);
 };
 
 #endif
