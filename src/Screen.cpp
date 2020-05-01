@@ -1,27 +1,30 @@
 #include "Screen.h"
 
 Screen::Screen()
-  : m_screen(0x3c, 0, 2) {}
+  : _screen(0x3c, 4, 5) {}
 
 void Screen::init() {
-  m_screen.init();
-  m_screen.setContrast(255);
+  _screen.init();
+  _screen.setContrast(255);
+}
+
+void Screen::clear() {
+  _screen.clear();
+}
+
+void Screen::display() {
+  _screen.display();
 }
 
 void Screen::print(uint8_t x, uint8_t y, String text) {
-  m_screen.clear();
-  m_screen.drawString(x, y, text);
-  m_screen.display();
+  _screen.drawString(x, y, text);
 }
 
 void Screen::drawFigure() {
-  m_screen.clear();
-  m_screen.drawXbm(0, 0, icon_wifi_width, icon_wifi_height, icon_wifi_bits);
-  m_screen.display();
+  _screen.drawXbm(0, 0, icon_wifi_width, icon_wifi_height, icon_wifi_bits);
+  _screen.drawXbm(32, 0, icon_conf_width, icon_conf_height, icon_conf_bits);
 }
 
 void Screen::drawPixel(uint8_t x, uint8_t y) {
-  m_screen.clear();
-  m_screen.setPixel(x,y);
-  m_screen.display();
+  _screen.setPixel(x,y);
 }

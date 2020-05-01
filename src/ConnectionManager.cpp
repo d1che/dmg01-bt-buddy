@@ -1,20 +1,20 @@
 #include "ConnectionManager.h"
 
-ConnectionManager::ConnectionManager() {  }
+ConnectionManager::ConnectionManager() {}
 
-void ConnectionManager::connect(char* ssid, char* pass) {
-  m_ssid = ssid;
-  m_pass = pass;
+void ConnectionManager::connect(const char* ssid, const char* pass) {
+  _ssid = ssid;
+  _pass = pass;
 
-  WiFi.begin(m_ssid, m_pass);
+  WiFi.begin(_ssid, _pass);
 
   // Wait for connection
   while(WiFi.status() != WL_CONNECTED) {
     delay (10);
   }
 
-  m_connected = true;
-  m_ip = WiFi.localIP().toString();
+  _connected = true;
+  _ip = WiFi.localIP().toString();
 }
 
 void ConnectionManager::disconnect() {
@@ -22,10 +22,10 @@ void ConnectionManager::disconnect() {
 }
 
 String ConnectionManager::getIP() {
-  return m_ip;
+  return _ip;
 }
 
 void ConnectionManager::setHostname(String name) {
-  m_hostname = name;
-  WiFi.hostname(m_hostname);
+  _hostname = name;
+  WiFi.hostname(_hostname);
 }

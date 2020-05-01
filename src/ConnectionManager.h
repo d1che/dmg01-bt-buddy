@@ -6,15 +6,15 @@
 
 class ConnectionManager {
   private:
-    char* m_ssid;
-    char* m_pass;
-    String m_ip;
-    String m_hostname;
-    bool m_connected;
+    const char* _ssid;
+    const char* _pass;
+    String _ip;
+    String _hostname;
+    bool _connected;
   public:
     ConnectionManager();
     
-    void connect(char* ssid, char* pass);
+    void connect(const char* ssid, const char* pass);
     void disconnect();
     String getIP();
     void setHostname(String name);

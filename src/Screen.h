@@ -6,10 +6,13 @@
 
 class Screen {
   private:
-    SSD1306Wire m_screen;
+    SSD1306Wire _screen;
   public:
     Screen();
+
     void init();
+    void clear();
+    void display();
     void print(uint8_t x, uint8_t y, String text);
     void drawFigure();
     void drawPixel(uint8_t x, uint8_t y);

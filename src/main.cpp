@@ -1,30 +1,32 @@
 #include <Arduino.h>
+
 #include "Screen.h"
-#include "Button.h"
-//#include "Menu.h"
+#include "Menu.h"
 #include "ConnectionManager.h"
+#include "controls.h"
 
 // Please create this file in which you define
 // your WiFi credentials (see below)
-#include "credentials.h" 
+#include "credentials.h"
 
 Screen screen;
-Button button;
-//Menu menu;
+Menu menu;
 ConnectionManager connection;
 
+const char* items[3] = {"i1", "i2", "i3"};
+
 void setup() {
-  Serial.begin(9600);
   screen.init();
-  screen.print(0, 0, connection.getIP());
   screen.drawFigure();
+  menu.init(screen, items, 3);
+  delay(5000);
   
-  button.init();
+  controls::init();
 
   connection.connect(SSID, PASS); // Defined in "credentials.h"
   connection.setHostname("dmg01");
 }
 
 void loop() {
-  button.update();
+  controls::update();
 }
